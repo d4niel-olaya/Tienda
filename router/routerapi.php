@@ -31,13 +31,12 @@ class Route{
                     require_once $file;
                     $instance = new $controller;
                     if(isset($this-> url[2]) == false){
-                        echo($instance->get());
+                        $_POST['productos'] = $instance -> get();
                     }
                     else{
-                        echo($instance -> getById($this->url[2]));
+                        $_POST['producto'] = $instance -> get($this-> url[2]);
                     }
-                    // $instance -> get();
-                    // $instance = new $controller;
+                    require 'views/productos/productos.php';
                 }
             }
         }

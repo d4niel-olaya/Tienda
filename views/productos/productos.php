@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?php
+        if(isset($_POST['productos'])){
+            print_r($_POST['productos']);
+        }
+        else{
+            print_r($_POST['producto']);
+        }
+    ?>
 </body>
 </html>
