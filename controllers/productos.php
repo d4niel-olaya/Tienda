@@ -25,7 +25,7 @@ class Productos{
                 $uso = $row['Uso'];
                 $cantidad = $row['Cantidad'];
                 $img = $row['Imagen'];
-                $arr = ['Id'=> $id,'Nombre' => $nombre ,'Precio' => $precio, 'Uso'=>$uso , 'Cantidad' => $cantidad, 'Img'=> $img];
+                $arr = ['id'=> $id,'nombre' => $nombre ,'precio' => $precio, 'uso'=>$uso , 'cantidad' => $cantidad, 'img'=> $img];
                 array_push($items, $arr);
             }
             mysqli_free_result($resultado);

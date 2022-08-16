@@ -7,9 +7,10 @@ class Route{
         $url = explode('/', $url);
         $this -> url = $url;
         $this -> SetRoute();
+        // $this -> SetNormarRoute();
     }
 
-    private function ValidUrl(){
+    private function ValidUrlApi(){
         if($this -> url[0] == 'api'){
             return true;
         }
@@ -18,29 +19,50 @@ class Route{
         }
     }
 
+    private function ValidUrl(){
+        if($this -> url[0] == 'productos' || $this -> url[0] == 'ventas' || $this -> url[0] == 'api'){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public function SetRoute(){
         $state = $this -> ValidUrl();
         if($state){
-            if(empty($this-> url[1])){
-                echo 'Esta en al vista main';
-            }
-            else{
+            if($this -> url[0] == 'api'){
                 $controller = $this -> url[1];
                 $file = 'controllers/'.$controller.'.php';
                 if(file_exists($file)){
                     require_once $file;
                     $instance = new $controller;
-                    if(isset($this-> url[2]) == false){
-                        print_r($instance -> get());
-                    }
-                    else{
-                        print_r($instance->get($this->url[2]));
+                    if($_SERVER['REQUEST_METHOD'] == 'GET'){
+                        if(isset($this-> url[2]) == false){
+                            echo '<pre>';
+                            print_r($instance -> get());
+                            echo '</pre>';
+                            // var_dump($_SERVER['REQUEST_METHOD']);
+                        }
+                        else{
+                            print_r($instance->get($this->url[2]));
+                        }
                     }
                 }
             }
-        }
-        else{
-            echo 'NO hay nada';
+            if($this -> url[0] == 'productos'){
+                require_once 'views/productos.php';
+            }
+            if($this -> url[0] == 'ventas'){
+                require_once 'views/ventas.php';
+            }
         }
     }
+    // public function SetNormarRoute(){
+    //     $state = $this -> ValidUrl();
+    //     if($state){
+    //         echo 'Ruta correcta';
+    //     }
+    //     else{
+    //         echo 'Esta en una ruta equivocada';
+    //     }
+    // }
 }

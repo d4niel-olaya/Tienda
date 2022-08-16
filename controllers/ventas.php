@@ -21,7 +21,7 @@ class Ventas{
                 $nombre = $row['Producto'];
                 $fecha = $row['Fecha de compra'];
                 $total = $row['Total'];
-                $arr = ['Id'=> $id,'Producto' => $nombre ,'Fecha' => $fecha, 'Total'=>$total];
+                $arr = ['id'=> $id,'producto' => $nombre ,'fecha' => $fecha, 'total'=>$total];
                 array_push($items, $arr);
             }
         }
