@@ -12,7 +12,7 @@ class Request{
         );
     }
 
-    public function getResult(){
+    public function getAll(){
         $contexto = stream_context_create($this -> opciones);
         # Hacerla
         $resultado = file_get_contents($this->url.$this -> colleccion, false, $contexto);
