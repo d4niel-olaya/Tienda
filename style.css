@@ -1,0 +1,33 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+body{
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+}
+.app{
+    width: 100%;
+}
+
+.app .producto{
+    width: 70%;
+    text-align: center;
+}
+
+.app .producto .img{
+    width: 50%;
+}
+
+
+.app .header{
+    width: 100%;
+    background-color: rgb(33, 225, 33);
+}

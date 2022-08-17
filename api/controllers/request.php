@@ -12,10 +12,12 @@ class Request{
         );
     }
 
-    public function getAll(){
+    public function getAll($id=null){
         $contexto = stream_context_create($this -> opciones);
-        # Hacerla
         $resultado = file_get_contents($this->url.$this -> colleccion, false, $contexto);
+        if(isset($id)){
+            $resultado = file_get_contents($this->url.$this -> colleccion.'/'.$id, false, $contexto);
+        }
         if ($resultado === false) {
             return false;
             exit;

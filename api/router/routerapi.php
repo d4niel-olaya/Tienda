@@ -44,6 +44,7 @@ class RouterApi{
                         else{
                             print_r($instance->get($this->url[1]));
                         }
+                        break;
                 }
             }
         }
