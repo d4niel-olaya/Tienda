@@ -29,7 +29,7 @@ class Productos{
                 array_push($items, $arr);
             }
             mysqli_free_result($resultado);
-            return json_encode($items);
+            return json_encode($items,true);
         }
     }
 

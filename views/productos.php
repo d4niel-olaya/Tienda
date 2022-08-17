@@ -32,8 +32,11 @@
 
         require_once 'controllers/request.php';
         $req = new Request('productos');
-        echo($req -> getResult());
-
+        $productos = json_decode($req -> getResult(),true);
+        var_dump($productos);
+        // foreach($productos as $producto){
+        //     echo "<p>Producto: ".$producto['id']."</p>";
+        // }
     ?>
 </body>
 </html>

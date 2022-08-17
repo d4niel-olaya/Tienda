@@ -1,13 +1,12 @@
 <?php
 
 class Request{
-    public function __construct($collecion, $id=null){
+    public function __construct($collecion){
         $this -> url = 'http://localhost/tienda/api/';
         $this -> colleccion = $collecion;
-        $this -> id = $id;
         $this -> opciones =  array(
             "http" => array(
-                "header" => "Content-type: application/x-www-form-urlencoded\r\n",
+                "header" => "Content-Type: text",
                 "method" => "GET" # Agregar el contenido definido antes
             ),
         );
