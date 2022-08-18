@@ -28,4 +28,15 @@ class Ventas{
         mysqli_free_result($resultado);
         return json_encode($items);
     }
+
+    public function CreateBuy($fecha, $total){
+        $consulta = "INSERT INTO ventas(fecha_actual, total) VALUES($fecha, $total)";
+        $resultado = mysqli_query($conexion, $consulta);
+        if(!$resultado){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }
