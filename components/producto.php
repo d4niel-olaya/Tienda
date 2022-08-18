@@ -10,7 +10,11 @@ class Producto{
                 <p>Unidades : $cantidad</p>
                 <p>Tipo de uso : $uso</p>
                 <img src='../img/$img' class='img'>
-                <a href='productos.php?id=$id'>Añadir al carro</a>
+                <form action='add.php' method='get'>
+                    <input type='text' name='id' value='$id'> 
+                    <input type='number' min='1' max=$cantidad name='cantidad' class='cantidad'>
+                    <button>Agregar al carrito</buttton>
+                </form>
             </div>";
     }
 }

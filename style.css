@@ -20,14 +20,24 @@ body{
 .app .producto{
     width: 70%;
     text-align: center;
+    /* border: 1px solid; */
 }
 
 .app .producto .img{
     width: 50%;
+}
+.img{
+    border: 1px solid black;
 }
 
 
 .app .header{
     width: 100%;
     background-color: rgb(33, 225, 33);
+}
+input[type=text]{
+    display: none;
+}
+.cantidad{
+    border: 1px solid black;
 }

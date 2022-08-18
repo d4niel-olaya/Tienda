@@ -1,7 +1,9 @@
 <?php
 require_once '../api/controllers/request.php';
-require_once 'producto.php';
+require_once '../components/producto.php';
 session_start();
+// $_SESSION['compras'] = 'Juan';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,19 +18,18 @@ session_start();
     <div class="app">
         
     <?php
-        include_once 'navbar.php';
-        $_SESSION['compras'] = [];
+        // session_start();
+        include_once '../components/navbar.php';
+        // $_SESSION['compras'] = [];
         if(isset($_GET['id'])){
             $reqByid = new Request('productos');
             $result= json_decode($reqByid -> getAll($_GET['id']),true);
-            array_push($_SESSION['compras'], $_GET['id']);
         }
         else{
         // var_dump($_GET['id']);
             $req = new Request('productos');
             $result = json_decode($req->getAll(),true);
         }
-        var_dump($_SESSION['compras']);
         foreach($result as $producto){
             $id = $producto['id'];
             $nombre = $producto['nombre'];
@@ -38,7 +39,6 @@ session_start();
             $img = $producto['img'];
             Producto::Template($id,$nombre, $precio, $img,$uso,$cantidad);
         }
-
 
     ?>
     </div>
